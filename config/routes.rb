@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   scope '/api' do
     scope '/v1' do
       scope '/users' do
-        get '/'    => 'user#index'
+        get '/:user'    => 'user#get'
         post '/'   => 'user#create'
         scope '/:user/todos' do
           get '/'    => 'todo#index'
