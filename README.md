@@ -1,24 +1,19 @@
-# README
+# To-do list
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+**Environment**
+  
+ * Ruby 2.4.0
+ * Rails 5.0.2
 
-Things you may want to cover:
+**Configuration**
 
-* Ruby version
+On the root folder:
 
-* System dependencies
+```console
 
-* Configuration
+$ bundle install     # install dependencies
+$ rake db:create     # create database
+$ rake db:migrate    # update database schema
+$ rails s            # run server
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+```
