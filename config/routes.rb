@@ -4,6 +4,11 @@ Rails.application.routes.draw do
       scope '/users' do
         get '/'    => 'user#get'
         post '/'   => 'user#create'
+
+        scope '/tokens' do
+          post '/get'   =>  'user#get_token'
+        end
+
         scope '/todos' do
           get '/'    => 'todo#index'
           post '/'   => 'todo#create'

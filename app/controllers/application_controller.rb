@@ -27,6 +27,8 @@ class ApplicationController < ActionController::API
          render json: {"error": "Bad json"}, status: :bad_request
        elsif status == :conflict
          render json: {"error": "The resource already exists"}, status: :conflict
+       elsif status == :unauthorized
+         render json: {"error": "Unauthorized or wrong credentials"}, status: :unauthorized
        else
          render json: {"error": message}, status: status
        end
