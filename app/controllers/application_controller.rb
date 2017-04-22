@@ -2,7 +2,14 @@ class ApplicationController < ActionController::API
   before_action :parse_request
 
   private
+     def authenticate_token
+       if !@headers['Token'] || !(@user = User.find_by_token(@headers['Token']))
+         render nothing: true, status: :unauthorized
+       end
+     end
+
      def parse_request
+       @headers = request.headers
        begin
          @json = JSON.parse(request.body.string)
        rescue

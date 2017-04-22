@@ -1,5 +1,5 @@
 class TodoController < ApplicationController
-  before_action :find_user
+  before_action :authenticate_token
   before_action :find_todo, except: [:index, :create]
 
   def index
@@ -42,11 +42,6 @@ class TodoController < ApplicationController
   end
 
   private
-    def find_user
-      @user = User.find_by_id params[:user]
-      error_response "User not found", :not_found if not @user
-    end
-
     def find_todo
       @todo = @user.todos.find_by_id params[:todo]
       error_response "To-do not found", :not_found if not @todo

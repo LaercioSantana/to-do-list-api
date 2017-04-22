@@ -1,7 +1,8 @@
 class UserController < ApplicationController
+  before_action :authenticate_token, except: :create
 
   def get
-    render json: User.find_by_id(params[:user]), status: :ok
+    render json: @user, status: :ok
   end
 
   def create
@@ -13,12 +14,11 @@ class UserController < ApplicationController
       @user = User.new
       @user.assign_attributes @json
       if @user.save
-        user = @user.attributes.except("password_digest")
+        user = @user.attributes.except("password_digest", "token")
         render json: user, status: :created
       else
         error_response "Some invalid input", :bad_request
       end
     end
   end
-
 end
