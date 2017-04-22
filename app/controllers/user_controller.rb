@@ -13,7 +13,8 @@ class UserController < ApplicationController
       @user = User.new
       @user.assign_attributes @json
       if @user.save
-        render json: @user, status: :created
+        user = @user.attributes.except("password_digest")
+        render json: user, status: :created
       else
         error_response "Some invalid input", :bad_request
       end
