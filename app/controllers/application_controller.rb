@@ -4,7 +4,7 @@ class ApplicationController < ActionController::API
   private
      def authenticate_token
        if !@headers['Token'] || !(@user = User.find_by_token(@headers['Token']))
-         render nothing: true, status: :unauthorized
+         head :unauthorized
        end
      end
 
