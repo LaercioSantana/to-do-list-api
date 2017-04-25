@@ -5,7 +5,7 @@
  * Ruby 2.4.0
  * Rails 5.0.2
 
-**Configuration**
+### Usage
 
 On the root folder:
 
@@ -17,3 +17,12 @@ $ rake db:migrate    # update database schema
 $ rails s            # run server
 
 ```
+
+## Run tests
+
+On the root folder:
+
+```console
+$ rspec spec --format documentation
+```
+
