@@ -49,12 +49,12 @@ RSpec.describe UserController, type: :controller do
       end
 
       it "responds HTTP 200" do
-        post :get_token, headers: @headers, body: @body.to_json, format: :json
+        post :get_token, body: @body.to_json, format: :json
         expect(response).to have_http_status(:ok)
       end
 
       it "returns user token" do
-        post :get_token, headers: @headers, body: @body.to_json, format: :json
+        post :get_token, body: @body.to_json, format: :json
         authorization = JSON.parse(response.body)
         expect(authorization["token"]).to eq @user1.token
       end
@@ -69,7 +69,7 @@ RSpec.describe UserController, type: :controller do
       end
 
       it "responds HTTP 404" do
-        post :get_token, headers: @headers, body: @body.to_json, format: :json
+        post :get_token, body: @body.to_json, format: :json
         expect(response).to have_http_status(:not_found)
       end
     end
@@ -83,7 +83,7 @@ RSpec.describe UserController, type: :controller do
       end
 
       it "responds HTTP 401" do
-        post :get_token, headers: @headers, body: @body.to_json, format: :json
+        post :get_token, body: @body.to_json, format: :json
         expect(response).to have_http_status(:unauthorized)
       end
     end
@@ -96,7 +96,7 @@ RSpec.describe UserController, type: :controller do
       end
 
       it "responds HTTP 400" do
-        post :get_token, headers: @headers, body: @body, format: :json
+        post :get_token, body: @body, format: :json
         expect(response).to have_http_status(:bad_request)
       end
     end
@@ -120,12 +120,12 @@ RSpec.describe UserController, type: :controller do
       end
 
       it "responds HTTP 201" do
-        post :create, headers: @headers, body: @body.to_json, format: :json
+        post :create, body: @body.to_json, format: :json
         expect(response).to have_http_status(:created)
       end
 
       it "returns the user that was be created" do
-        post :create, headers: @headers, body: @body.to_json, format: :json
+        post :create, body: @body.to_json, format: :json
         user = JSON.parse(response.body)
         expect(user["email"]).to eq @body[:email]
       end
@@ -141,7 +141,7 @@ RSpec.describe UserController, type: :controller do
       end
 
       it "responds HTTP 409" do
-        post :create, headers: @headers, body: @body.to_json, format: :json
+        post :create, body: @body.to_json, format: :json
         expect(response).to have_http_status(:conflict)
       end
     end
@@ -155,7 +155,7 @@ RSpec.describe UserController, type: :controller do
       end
 
       it "responds HTTP 400" do
-        post :create, headers: @headers, body: @body.to_json, format: :json
+        post :create, body: @body.to_json, format: :json
         expect(response).to have_http_status(:bad_request)
       end
     end
