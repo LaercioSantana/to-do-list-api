@@ -125,9 +125,9 @@ RSpec.describe UserController, type: :controller do
       end
 
       it "returns the user that was be created" do
-        post :get_token, headers: @headers, body: @body.to_json, format: :json
+        post :create, headers: @headers, body: @body.to_json, format: :json
         user = JSON.parse(response.body)
-        expect(user["email"]).to eq @body["email"]
+        expect(user["email"]).to eq @body[:email]
       end
     end
 
