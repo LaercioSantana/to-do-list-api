@@ -26,3 +26,14 @@ On the root folder:
 $ rspec spec --format documentation
 ```
 
+## Doc
+
+You can see the documentation [here](https://laerciosantana.github.io/to-do-list-api/doc/)
+
+To generate the documentation you need have installed [apidoc](http://apidocjs.com).
+
+```console
+$ apidoc -i app/controllers/ -o doc/
+``` 
+
+
