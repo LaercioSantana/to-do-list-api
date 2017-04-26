@@ -1,0 +1,11 @@
+{
+  "name": "To-do List",
+  "version": "1.0.0",
+  "description": "A simple rest api to a to-do list app",
+  "title": "To-do List",
+  "url" : "http://host/api/v1",
+  "order": [
+      "Users",
+      "To-do"
+  ]
+}
