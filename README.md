@@ -28,7 +28,7 @@ $ rspec spec --format documentation
 
 ## Doc
 
-You can see the documentation [here](https://laerciosantana.github.io/to-do-list-api/doc/)
+You can see the documentation [here](https://laerciosantana.github.io/to-do-list-api/doc/)(portuguese)
 
 To generate the documentation you need have installed [apidoc](http://apidocjs.com).
 
